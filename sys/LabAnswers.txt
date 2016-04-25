@@ -1,0 +1,44 @@
+Linux Kernel-like Scheduling
+
+Advantages : 
+
+1. Prevents Starving
+2. Higher priority processes and IO processes are always scheduled ahead of other process in a new Epoch.
+3.Aged processes are given more prioirty in the next epoch.
+
+Disadvantages : 
+1. Slow because every process is touched at every epoch.
+
+Multi Q Scheduling
+
+Advantages : 
+
+1. 2 queues for different processes. All interactive processes are in 1 queue and normal processes in the other queue. The queue with interactive processes are run more than the normal process queue.
+2. Good load balance
+3.Aging is implemented well.
+
+Disadvantages : 
+
+1. Complex algorithm.
+2. Selecting which queue to schedule causes an overhead.
+
+Original Scheduler : 
+
+Advantages : 
+
+1. Processes are sorted ased on priority. Higher priority process is always run 1st.
+2. Simple algorithm
+
+Disadvantages : 
+
+1.Prone to starving
+2.Aging is not implemented
+
+
+
+
+Test Case 7 : Reducing the priority from 1000000000 to 100000000 gives correct output. I've made sure priority becomes greater than INT_MAX . But it still fails when priority is 1000000000.
+I think its because the backend has a problem
+
+
+Bonus Test case : I/O processes inbetween schedule correctly
